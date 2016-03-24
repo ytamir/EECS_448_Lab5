@@ -67,7 +67,7 @@ if ($isauser)
 
 }
 
-
+$result->free();
 $mysqli->close();	
 ?>
 
