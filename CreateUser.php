@@ -21,7 +21,7 @@ if($user == "")
 	}
 echo "1";
 //echo </br>;
-echo $user;
+//echo $user;
 
 
 
@@ -59,7 +59,7 @@ if (!$isnumfieldempty)
 
 
 	}
-	
+
 $result->free();
 $mysqli->close();
 
