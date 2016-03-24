@@ -30,8 +30,19 @@ if($author_id == "")
 	}
 echo "2";
 
-if (!($iscontentfieldempty || $isauthorfieldempty)
-{
+if (!($iscontentfieldempty || $isauthorfieldempty))
+{	
+	$newitemquery = "INSERT INTO Posts2(Content, Post_id, Author_id) VALUES ('$content', 'NULL', '$author_id')";
+		echo "7";
+		if ( $succesfullyaddeditem = $mysqli->query($newitemquery))
+		{
+			echo"8";
+		}
 
-	echo "3";
-	
+
+}
+
+
+$mysqli->close();	
+?>
+
