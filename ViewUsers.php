@@ -15,7 +15,7 @@ if ($mysqli->connect_errno) {
 
 echo "<table>";
 
-
+echo "Table of all users";
 
 $checkingquery = "SELECT User_id FROM Users";
 	

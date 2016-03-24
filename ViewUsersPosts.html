@@ -1,0 +1,63 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    <form action="ViewUsersPosts.php" method="get">
+
+ 		<p>
+	  What Usernames would you like to add to the database?
+
+	 	</p>
+
+	 	<?php 
+				error_reporting(E_ALL);
+				ini_set("display_errors", 1);
+
+
+
+				$mysqli = new mysqli("mysql.eecs.ku.edu", "ytamir", "Password123!", "ytamir");
+
+				if ($mysqli->connect_errno) {
+    				printf("Connect failed: %s\n", $mysqli->connect_error);
+    				exit();
+				}
+				echo "<select>";
+
+
+					
+
+
+
+					$checkingquery = "SELECT User_id FROM Users";
+				
+				if ($result = $mysqli->query($checkingquery)) {
+						
+		 		 while ($row = $result->fetch_assoc()) {
+		 		 		$easy = $row["User_id"];
+		  	 			echo "<option value=$easy>$easy</option>";
+
+		  	 
+		  	 
+		  	
+		  			}
+		  	
+
+		  }
+		  echo "</select>"
+
+
+	
+	
+		
+		?>
+		 
+
+
+ 		<input type="submit" value="Submit">
+
+ 		</form>
+
+     </body>
+     </html>
