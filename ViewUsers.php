@@ -12,18 +12,18 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-
-echo "<table>";
+//create a table
+echo "<table border='2'>";
 
 echo "Table of all users";
-
+//print out all the users in a single table
 $checkingquery = "SELECT User_id FROM Users";
 	
 	if ($result = $mysqli->query($checkingquery)) {
 	echo "<tr>";
 		  while ($row = $result->fetch_assoc()) {
 		  	 
-
+		  		//printing out the table into unique squares of the table 
 		  	 echo "<td>".$row["User_id"]."</td>";
 		  	 
 		  	

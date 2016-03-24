@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
+//flags
 $alreadyapost = false;
 $isauthorfieldempty = false;
 $iscontentfieldempty = false;
@@ -14,10 +14,10 @@ if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 }
-
+//variables had from html
 $content = $_GET["content"];
 $author_id = $_GET["author_id"];
-
+//checking for empty inputs 
 if($content == "")
 	{
 		$iscontentfieldempty = true;
@@ -31,7 +31,7 @@ if($author_id == "")
 	}
 //echo "2";
 	echo $author_id;
-
+//if the inputs are valid check to make sur the user exitst
 if (!($iscontentfieldempty || $isauthorfieldempty))
 {
 $checkingquery = "SELECT User_id FROM Users";
@@ -54,14 +54,15 @@ $checkingquery = "SELECT User_id FROM Users";
 		  }
 	}
 }
-
+//if the user is a valid user process the request and add it to the database 
 if ($isauser)
 {	
 	$newitemquery = "INSERT INTO Posts2(Content, Post_id, Author_id) VALUES ('$content', 'NULL', '$author_id')";
-		echo "7";
+		//echo "7";
 		if ( $succesfullyaddeditem = $mysqli->query($newitemquery))
 		{
-			echo"8";
+			//echo"8";
+			echo "A new post has succesfully been created";
 		}
 
 

@@ -1,0 +1,64 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    <form action="DeletePost.php" method="get">
+
+ 		<?php
+
+			error_reporting(E_ALL);
+			ini_set("display_errors", 1);
+
+			
+
+			$mysqli = new mysqli("mysql.eecs.ku.edu", "ytamir", "Password123!", "ytamir");
+
+			if ($mysqli->connect_errno) {
+			    printf("Connect failed: %s\n", $mysqli->connect_error);
+			    exit();
+			}
+
+
+			echo "<table border='2'>";
+
+			
+
+			$checkingquery = "SELECT Author_id,Content,Post_id FROM Posts2";
+				
+				if ($result = $mysqli->query($checkingquery)) {
+				
+		  while ($row = $result->fetch_assoc()) {
+		  	 
+				echo "<tr>";
+		  	 echo "<td>".$row["Content"]."</td>";
+		  	 echo "<td>".$row["Author_id"]."</td>";
+		  	echo "<td>";
+		  	$temp = $row["Post_id"];
+            echo "<input type='checkbox' name=id[$temp] />"; 
+       		echo "</td>";
+
+		  	 echo "</tr>";
+		  	 }
+		  	
+		  	}
+		  	
+
+		  
+
+		  	$result->free();
+		$mysqli->close();
+	
+	 echo "</table>";
+?>
+
+		
+
+
+ 		<input type="submit" value="Submit">
+
+ 		</form>
+
+     </body>
+     </html>

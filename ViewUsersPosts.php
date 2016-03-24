@@ -12,11 +12,11 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-
-echo "<table>";
+//createing a table 
+echo "<table border='2'>";
 
 echo "Table of all posts by $user";
-
+//making a table only if the user that is selected is the one who made the post 
 $checkingquery = "SELECT Author_id,Content FROM Posts2";
 	
 	if ($result = $mysqli->query($checkingquery)) {
@@ -34,6 +34,8 @@ $checkingquery = "SELECT Author_id,Content FROM Posts2";
 		  }
 
 
+		  $result->free();
+$mysqli->close();
 	
 	 echo "</table>";
 ?>
